@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google</title>
+    <!-- Tailwind CSS CDN for modern and responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* «” ›«œÂ «“ ›Ê‰  «” «‰œ«—œ »—«Ì ‘»ÌÂù”«“Ì Ÿ«Â— êÊê· */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Vazirmatn', 'Roboto', sans-serif;
+            background-color: #ffffff;
+            color: #202124;
+        }
+
+        /* «” «Ì· »—«Ì ‰Ê«— ÅÌ„«Ì‘ »«·« òÂ Õ«·  Ã” ÃÊ Ì« «Œ»«— —« ‰‘«‰ „ÌùœÂœ */
+        .tab-button {
+            /*  ‰ŸÌ„«  «’·Ì: ÅœÌ‰ê° „ò«‰ù‰„«° «‰œ«“Â ›Ê‰ ° Œÿ “Ì—Ì‰ ‘›«›° —‰ê „ ‰ ÅÌ‘ù›—÷ Œ«ò” —Ì */
+            @apply p-3 cursor-pointer text-sm font-medium border-b-4 border-transparent text-gray-500 transition-colors duration-150;
+        }
+
+        /* Õ«·  Â«Ê— »—«Ì  „«„ œò„ÂùÂ«: ‰„«Ì‘ Œÿ Œ«ò” —Ì „·«Ì„ */
+        .tab-button:hover {
+            /* «Ì‰ Œÿ “Ì—Ì‰ „·«Ì„ ›ﬁÿ Â‰ê«„ Â«Ê— Ÿ«Â— „Ìù‘Êœ */
+            border-bottom-color: #e0e0e0; 
+        }
+        
+        /* Õ«·  ›⁄«·: ‰„«Ì‘ Œÿ ¬»Ì/‰Ì·Ì Å——‰ê Ê  €ÌÌ— —‰ê „ ‰ («Ê·ÊÌ  »«·« — »« !important) */
+        .tab-active {
+            /* Â‰ê«„ ›⁄«· »Êœ‰° Œÿ ¬»Ì Å——‰ê Ê —‰ê „ ‰ ¬»Ì Å——‰ê „Ìù‘Êœ */
+            @apply text-indigo-700 border-indigo-700 !important;
+        }
+
+        /* «” «Ì· »—«Ì „Õ· „Œ›Ì ‰„«Ì‘ —„“ */
+        .hidden-result {
+            color: #dadce0; 
+            font-size: 0.7rem;
+            direction: ltr;
+        }
+
+        /* «‰Ì„Ì‘‰ „ÕÊ ‘œ‰ »—«Ì ‰ ÌÃÂ —„“ê‘«ÌÌ - 0.5 À«‰ÌÂ */
+        .fade-out {
+            opacity: 0;
+            transition: opacity 0.5s ease-out; 
+        }
+        
+        #decrypted-text {
+            direction: rtl; 
+            font-family: 'Vazirmatn', sans-serif; 
+        }
+        
+        /* Õ–› Œÿ ÅÌ‘ù›—÷ Œ«ò” —Ì «“ “Ì— Âœ— òÂ »«⁄À «ÌÃ«œ Œÿ ‰«ŒÊ«” Â „Ìù‘œ */
+        .main-header {
+            @apply w-full border-b-0; /* Œÿ “Ì—Ì‰ Âœ— «’·Ì —« Å«ò „Ìùò‰Ì„ */
+        }
+        
+        /* Œÿ Œ«ò” —Ì „·«Ì„ ›ﬁÿ »Â Å«ÌÌ‰ ‰Ê«— ‰«Ê»—Ì (nav) «÷«›Â „Ìù‘Êœ  «  »ùÂ« —« «“ „Õ Ê«Ì “Ì—Ì‰ Ãœ« ò‰œ */
+        .nav-bar {
+            @apply border-b border-gray-200;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center">
+
+    <!-- Header & Navigation Bar (Simulating Google Search UI) -->
+    <header class="main-header w-full">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+            <!-- Google Logo (Placeholder) -->
+            <div class="text-2xl font-semibold text-gray-800">
+                <span class="text-blue-500">G</span><span class="text-red-500">o</span><span class="text-yellow-500">o</span><span class="text-blue-500">g</span><span class="text-green-500">l</span><span class="text-red-500">e</span>
+            </div>
+            
+            <!-- User Info -->
+            <div id="user-info-display" class="hidden-result md:inline-block"></div>
+        </div>
+        
+        <!-- Search Tabs (Key for switching modes) -->
+        <nav class="nav-bar max-w-6xl mx-auto px-4">
+            <div class="flex space-x-6 space-x-reverse">
+                <button id="search-tab" class="tab-button tab-active">Ã” ÃÊ</button>
+                <button id="news-tab" class="tab-button">«Œ»«—</button>
+                <button id="images-tab" class="tab-button"> ’«ÊÌ—</button>
+                <button id="maps-tab" class="tab-button">‰ﬁ‘ÂùÂ«</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 w-full max-w-xl px-4 pt-10">
+        <!-- Main Search Input -->
+        <div class="relative mb-6">
+            <input 
+                id="search-input" 
+                type="text" 
+                placeholder="" 
+                autocomplete="off" 
+                class="w-full p-3 pl-10 border border-gray-300 rounded-full shadow-md focus:shadow-lg focus:border-indigo-500 outline-none text-base"
+                autofocus
+            >
+            <!-- Search Icon -->
+            <svg class="w-5 h-5 absolute top-3 left-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+        </div>
+
+        <!-- Mode Status & Decrypted Result Area (Now completely empty) -->
+        <div id="mode-status" class="text-center mb-6 text-lg font-semibold text-gray-600">
+            <!-- «Ì‰ ﬁ”„  Â„Ì‘Â Œ«·Ì «”   « ÂÌç „ ‰Ì Ÿ«Â— ‰‘Êœ -->
+        </div>
+
+        <!-- Decryption Result Display (Hidden initially, appears on News mode success/failure) -->
+        <!-- ò«œ— »œÊ‰ ÂÌç «” «Ì· Â‘œ«—Ì° ›ﬁÿ Ìò œÌÊ Å‰Â«‰ «”  -->
+        <div id="decryption-box" class="hidden p-3 text-center" role="alert">
+            <!-- «Ì‰ Å«—«ê—«› »—«Ì ⁄‰Ê«‰ »Êœ òÂ Õ«·« Œ«·Ì „Ìù„«‰œ -->
+            <p class="font-bold mb-2"></p>
+            <!-- „ ‰ —„“ê‘«ÌÌ ‘œÂ »« «‰œ«“Â Ê —‰ê ⁄«œÌ -->
+            <p id="decrypted-text" class="text-base text-gray-800"></p>
+        </div>
+
+        <!-- Dynamic Search Results Area -->
+        <div id="results-area" class="mt-8">
+            <!-- Results will be dynamically inserted here -->
+        </div>
+    </main>
+
+    <!-- Footer (Cleaned up, no hidden output here) -->
+    <footer class="w-full mt-auto py-3 border-t border-gray-200 text-center">
+        <p class="text-gray-500 text-xs">
+            © 2025 Google - <a href="#" class="underline">Õ—Ì„ Œ’Ê’Ì</a> - <a href="#" class="underline">‘—«Ìÿ</a>
+        </p>
+    </footer>
+
+
+    <!-- Firebase SDKs & Core Logic -->
+    <script type="module">
+        // --- Ê«—œ«  „«éÊ·ùÂ«Ì ›«Ì—»Ì” ---
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, getDoc, setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // --- „ €Ì—Â«Ì ê·Ê»«· ›«Ì—»Ì” ---
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+
+        let db, auth;
+        let userId = null;
+        let isAuthReady = false;
+        let currentMode = 'encode'; 
+        
+        // --- ⁄‰«’— DOM ---
+        const searchInput = document.getElementById('search-input');
+        const searchTab = document.getElementById('search-tab');
+        const newsTab = document.getElementById('news-tab');
+        const imagesTab = document.getElementById('images-tab');
+        const mapsTab = document.getElementById('maps-tab');
+        const modeStatus = document.getElementById('mode-status');
+        const decryptionBox = document.getElementById('decryption-box');
+        const decryptedText = document.getElementById('decrypted-text');
+        const userInfoDisplay = document.getElementById('user-info-display');
+        const resultsArea = document.getElementById('results-area');
+        
+        // --- ÅÌò—»‰œÌ Ê ò·Ìœ —„“ ---
+        const SECRET_KEY = "GEMINI-CODE-25"; 
+        const START_ASCII = 32; 
+        const END_ASCII = 126;  
+        const RANGE = END_ASCII - START_ASCII + 1;
+        
+        // ---  ‰ŸÌ„«  ò·Ìœ ‰«„—∆Ì (Stealth Mode) ---
+        const INVISIBLE_CHARS = ['\u200B', '\u200C', '\u200D', '\u2060']; 
+        const BASE_N = INVISIBLE_CHARS.length; // 4
+        const BASE_36 = '0123456789abcdefghijklmnopqrstuvwxyz'; 
+        const STEALTH_TRIGGER_KEY = '\u200B\u200C\u200D\u2060'; 
+
+        // ---  Ê«»⁄ —„“ê–«—Ì Ê —„“ê‘«ÌÌ Vigenere-like ---
+
+        function base64Encode(str) {
+            const utf8Str = unescape(encodeURIComponent(str));
+            return btoa(utf8Str);
+        }
+
+        function base64Decode(str) {
+            try {
+                const utf8Str = atob(str);
+                return decodeURIComponent(escape(utf8Str));
+            } catch (e) {
+                return "Œÿ« œ— —„“ê‘«ÌÌ Base64. (Error: Invalid Cipher Format)";
+            }
+        }
+
+        function getKeyShift(key, index) {
+            return (key.charCodeAt(index % key.length) - START_ASCII);
+        }
+
+        function encrypt(plaintext) {
+            const base64Str = base64Encode(plaintext);
+            let ciphertext = "";
+            for (let i = 0; i < base64Str.length; i++) {
+                let charCode = base64Str.charCodeAt(i);
+                if (charCode >= START_ASCII && charCode <= END_ASCII) { 
+                    let keyShift = getKeyShift(SECRET_KEY, i);
+                    let shiftedCode = charCode - START_ASCII;
+                    let newShiftedCode = (shiftedCode + keyShift) % RANGE;
+                    ciphertext += String.fromCharCode(newShiftedCode + START_ASCII);
+                } else {
+                    ciphertext += base64Str[i]; 
+                }
+            }
+            return ciphertext;
+        }
+
+        function decrypt(ciphertext) {
+            let base64Str = "";
+            for (let i = 0; i < ciphertext.length; i++) {
+                let charCode = ciphertext.charCodeAt(i);
+                if (charCode >= START_ASCII && charCode <= END_ASCII) {
+                    let keyShift = getKeyShift(SECRET_KEY, i);
+                    let shiftedCode = charCode - START_ASCII;
+                    let newShiftedCode = (shiftedCode - keyShift + RANGE) % RANGE;
+                    base64Str += String.fromCharCode(newShiftedCode + START_ASCII);
+                } else {
+                    base64Str += ciphertext[i];
+                }
+            }
+            return base64Decode(base64Str);
+        }
+        
+        // ---  Ê«»⁄ Stealth Mode ---
+
+        function generateShortId() {
+            //  Ê·Ìœ Ìò UUID òÊ «Â 16 ò«—«ò —Ì
+            return Date.now().toString(36) + Math.random().toString(36).substring(2, 6) + crypto.randomUUID().substring(0, 4);
+        }
+
+        function encodeCharToStealth(char36) {
+            const index36 = BASE_36.indexOf(char36);
+            if (index36 === -1) return ''; 
+
+            const c1 = Math.floor(index36 / 16); 
+            const remaining = index36 % 16;
+            const c2 = Math.floor(remaining / 4); 
+            const c3 = remaining % 4; 
+            
+            return INVISIBLE_CHARS[c1] + INVISIBLE_CHARS[c2] + INVISIBLE_CHARS[c3];
+        }
+
+        function encodeIdToStealthKey(shortId) {
+            let stealthKey = STEALTH_TRIGGER_KEY; 
+            for (const char of shortId) {
+                stealthKey += encodeCharToStealth(char);
+            }
+            return stealthKey;
+        }
+
+        function decodeStealthKeyToId(stealthText) {
+            if (!stealthText.startsWith(STEALTH_TRIGGER_KEY)) return null;
+            let encodedBody = stealthText.substring(STEALTH_TRIGGER_KEY.length);
+            
+            let shortId = '';
+            
+            for (let i = 0; i < encodedBody.length; i += 3) {
+                if (i + 2 >= encodedBody.length) break; 
+
+                const char1 = encodedBody[i];
+                const char2 = encodedBody[i+1];
+                const char3 = encodedBody[i+2];
+
+                const c1Index = INVISIBLE_CHARS.indexOf(char1);
+                const c2Index = INVISIBLE_CHARS.indexOf(char2);
+                const c3Index = INVISIBLE_CHARS.indexOf(char3);
+                
+                if (c1Index === -1 || c2Index === -1 || c3Index === -1) break;
+
+                const index36 = (c1Index * 16) + (c2Index * 4) + c3Index;
+                
+                if (index36 >= BASE_36.length) break; 
+                
+                shortId += BASE_36.charAt(index36);
+            }
+            return shortId.length > 0 ? shortId : null;
+        }
+
+        // ---  Ê«»⁄ Firestore ---
+        
+        function getCipherDocRef(cipherId) {
+             const path = `artifacts/${appId}/public/data/ciphers`;
+             return doc(db, path, cipherId);
+        }
+
+        async function saveCipherToFirebase(cipherText) {
+            const cipherId = generateShortId(); 
+            const cipherDocRef = getCipherDocRef(cipherId);
+            
+            await setDoc(cipherDocRef, {
+                cipher: cipherText,
+                createdAt: Date.now(),
+            });
+            
+            return cipherId;
+        }
+
+        async function getCipherFromFirebase(cipherId) {
+            const cipherDocRef = getCipherDocRef(cipherId);
+            const docSnap = await getDoc(cipherDocRef);
+            
+            if (docSnap.exists()) {
+                return docSnap.data().cipher;
+            } else {
+                return null;
+            }
+        }
+
+        // --- —«Âù«‰œ«“Ì ›«Ì—»Ì” ---
+        async function setupFirebase() {
+            try {
+                setLogLevel('Debug');
+                const app = initializeApp(firebaseConfig);
+                db = getFirestore(app);
+                auth = getAuth(app);
+
+                onAuthStateChanged(auth, async (user) => {
+                    if (user) {
+                        userId = user.uid;
+                        userInfoDisplay.textContent = `User: ${userId.substring(0, 8)}...`;
+                        isAuthReady = true;
+                    } else {
+                        if (initialAuthToken) {
+                            await signInWithCustomToken(auth, initialAuthToken);
+                        } else {
+                            await signInAnonymously(auth);
+                        }
+                    }
+                });
+
+            } catch (error) {
+                console.error("Œÿ« œ— —«Âù«‰œ«“Ì ›«Ì—»Ì” (Auth/DB):", error);
+                //  ‰Â« ÅÌ«„ Œÿ«Ì ”Ì” „Ì œ— «Ì‰Ã« „Ã«“ «” .
+                displayError("Œÿ« œ— « ’«· »Â ”—ÊÌ”. ·ÿ›« „—Ê—ê— —« —›—‘ ò‰Ìœ.");
+            }
+        }
+        
+        // --- „‰ÿﬁ  €ÌÌ— Õ«·  (Mode Switching) ---
+
+        function switchMode(mode) {
+            currentMode = mode;
+            
+            // Å«ò”«“Ì Õ«·  ›⁄«· «“ Â„Â  »ùÂ«
+            searchTab.classList.remove('tab-active');
+            newsTab.classList.remove('tab-active');
+            imagesTab.classList.remove('tab-active');
+            mapsTab.classList.remove('tab-active');
+            
+            searchInput.value = '';
+            resultsArea.innerHTML = '';
+            decryptionBox.classList.add('hidden');
+            modeStatus.innerHTML = ''; // «ÿ„Ì‰«‰ «“ Œ«·Ì »Êœ‰ Ê÷⁄Ì 
+
+            //  ‰ŸÌ„ Õ«·  ›⁄«· »— «”«” ò·Ìò
+            let activeTabElement;
+            const placeholderText = ""; 
+            const statusHTML = ""; 
+            let inputDirection = 'rtl';
+            
+            if (mode === 'encode') {
+                activeTabElement = searchTab;
+                inputDirection = 'rtl';
+                
+            } else if (mode === 'decode') {
+                activeTabElement = newsTab;
+                inputDirection = 'ltr'; 
+                
+            } else if (mode === 'images') {
+                activeTabElement = imagesTab;
+                inputDirection = 'rtl';
+                
+            } else if (mode === 'maps') {
+                activeTabElement = mapsTab;
+                inputDirection = 'rtl';
+            }
+            
+            if (activeTabElement) {
+                activeTabElement.classList.add('tab-active');
+            }
+
+            // «⁄„«·  €ÌÌ—«  »Â DOM
+            searchInput.placeholder = placeholderText; 
+            modeStatus.innerHTML = statusHTML; 
+            searchInput.style.direction = inputDirection;
+            
+            searchInput.focus();
+        }
+
+        // --- „‰ÿﬁ „‘ —ò »—«Ì Å—œ«“‘ Ê—ÊœÌ ---
+        function handleInput(e) {
+            decryptionBox.classList.add('hidden');
+            resultsArea.innerHTML = ''; // Å«ò”«“Ì ‰ «ÌÃ ﬁ»·Ì
+            modeStatus.innerHTML = ''; // Õ–› Â—êÊ‰Â ÅÌ«„ Ê÷⁄Ì 
+            
+            const query = searchInput.value;
+
+            // 1. „‰ÿﬁ —„“ê–«—Ì (›ﬁÿ »« Enter œ— Õ«·  Encode)
+            if (currentMode === 'encode' && e.type === 'keydown' && e.key === 'Enter') {
+                e.preventDefault(); 
+                const queryTrimmed = query.trim();
+                if (!queryTrimmed) return; 
+
+                searchInput.value = ''; 
+                
+                // ‰„«Ì‘ ›ﬁÿ ·Êœ— (Spinner) »—«Ì ‘»ÌÂù”«“Ì Ã” ÃÊ
+                resultsArea.innerHTML = `
+                    <div class="text-center mt-10">
+                        <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-4"></div>
+                    </div>
+                `;
+
+                encryptAndSave(queryTrimmed);
+            
+            // 2. „‰ÿﬁ —„“ê‘«ÌÌ (»·«›«’·Â »« Input œ— Õ«·  Decode)
+            } else if (currentMode === 'decode' && e.type === 'input') {
+                
+                clearTimeout(window.decodeTimer); 
+
+                if (query.length === 0) {
+                    return;
+                }
+                
+                window.decodeTimer = setTimeout(() => {
+                    decryptAndFetch(query);
+                }, 250); 
+            }
+            
+            // 3. «ê— Õ«·   ’«ÊÌ— Ì« ‰ﬁ‘ÂùÂ« ›⁄«· »«‘œ° ÂÌç ò«—Ì «‰Ã«„ ‰„ÌùœÂÌ„  « ÿ»Ì⁄Ì »Â ‰Ÿ— »—”œ.
+        }
+        
+        // ---  Ê«»⁄ «’·Ì Å—œ«“‘ ---
+
+        async function encryptAndSave(plaintext) {
+            if (!isAuthReady || !db) {
+                displayError("Œÿ«: «Õ—«“ ÂÊÌ  Ì« Å«Ìê«Â œ«œÂ ¬„«œÂ ‰Ì” .");
+                return;
+            }
+
+            try {
+                const cipherText = encrypt(plaintext);
+                const cipherId = await saveCipherToFirebase(cipherText);
+                
+                // ‰„«Ì‘ Œÿ«Ì Ã⁄·Ì „—Ê—ê— œ— ‰«ÕÌÂ ‰ «ÌÃ
+                showFakeBrowserError(cipherId);
+
+            } catch (error) {
+                console.error("Œÿ« œ— —„“ê–«—Ì Ê –ŒÌ—Â:", error);
+                displayError("Œÿ« œ— –ŒÌ—Âù”«“Ì —„“ œ— Å«Ìê«Â œ«œÂ.");
+            }
+        }
+
+        async function decryptAndFetch(stealthKeyInput) {
+            if (!isAuthReady || !db) {
+                displayError("Œÿ«: «Õ—«“ ÂÊÌ  Ì« Å«Ìê«Â œ«œÂ ¬„«œÂ ‰Ì” .");
+                return;
+            }
+            
+            const cipherId = decodeStealthKeyToId(stealthKeyInput);
+
+            if (!cipherId) {
+                resultsArea.innerHTML = '';
+                // œ— ’Ê—  Œÿ«° ÅÌ«„ Œÿ«Ì ‰«„Õ”Ê” —« œ— ò«œ— ‰„«Ì‘ „ÌùœÂÌ„.
+                displayDecryptedResult("Œÿ« œ— »«—ê–«—Ì „Õ Ê«. „„ò‰ «”  « ’«· ÷⁄Ì› »«‘œ.", true);
+                return;
+            }
+
+            // ·Êœ— —« œ— ‰«ÕÌÂ ‰ «ÌÃ ‰„«Ì‘ „ÌùœÂÌ„ (ò«„·« ‘»ÌÂ »Â Ã” ÃÊÌ Ê«ﬁ⁄Ì)
+            resultsArea.innerHTML = `
+                <div class="text-center mt-10">
+                    <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-red-600 mx-auto mb-4"></div>
+                    <p class="text-gray-500">œ— Õ«· »«“Ì«»Ì «ÿ·«⁄« ... (ID: ${cipherId})...</p>
+                </div>
+            `;
+            
+            try {
+                const cipherText = await getCipherFromFirebase(cipherId);
+
+                if (cipherText) {
+                    const decryptedTextResult = decrypt(cipherText);
+                    searchInput.value = ''; 
+                    // œ— ’Ê—  „Ê›ﬁÌ ° ›ﬁÿ ò«œ— —« ‰„«Ì‘ „ÌùœÂÌ„.
+                    displayDecryptedResult(decryptedTextResult, false); 
+                } else {
+                    // ÅÌ«„ Œÿ«Ì ‰«„Õ”Ê” œ— ’Ê—  ⁄œ„ ÊÃÊœ ò·Ìœ œ— œÌ «»Ì”
+                    displayDecryptedResult(`Œÿ« œ— »«“Ì«»Ì «ÿ·«⁄« . ”—Ê— œ— œ” —” ‰Ì” .`, true);
+                }
+            } catch (error) {
+                 console.error("Œÿ« œ— »«“Ì«»Ì Ê —„“ê‘«ÌÌ:", error);
+                 displayDecryptedResult("Œÿ«Ì €Ì—„‰ Ÿ—Â œ— «— »«ÿ »« Å«Ìê«Â œ«œÂ.", true);
+            }
+        }
+        
+        // ---  Ê«»⁄ ò„òÌ DOM ---
+
+        function copyToClipboard(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.top = '0';
+            textarea.style.left = '0';
+            textarea.style.width = '1px';
+            textarea.style.height = '1px';
+            textarea.style.opacity = '0'; 
+            document.body.appendChild(textarea);
+            textarea.focus();
+            textarea.setSelectionRange(0, textarea.value.length); 
+            let success = false;
+            try {
+                success = document.execCommand('copy');
+            } catch (err) {
+                console.error('Failed to copy text', err);
+            }
+            document.body.removeChild(textarea);
+            return success;
+        }
+
+        function displayError(message) {
+            resultsArea.innerHTML = `
+                <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-lg shadow-lg" role="alert">
+                    <p class="font-bold mb-1">Œÿ«:</p>
+                    <p>${message}</p>
+                </div>
+            `;
+        }
+        
+        // ---  Ê«»⁄ ÃœÌœ »—«Ì Œÿ«Ì Ã⁄·Ì „—Ê—ê— œ— ’›ÕÂ ---
+
+        function showFakeBrowserError(cipherId) {
+            const stealthKey = encodeIdToStealthKey(cipherId);
+            const errorId = crypto.randomUUID().substring(0, 12);
+
+            resultsArea.innerHTML = `
+                <div class="flex items-start bg-white p-6 border border-gray-300 rounded-lg shadow-xl text-left rtl:text-right" style="direction: ltr;">
+                    <!-- Icon -->
+                    <svg class="w-8 h-8 text-red-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                    </svg>
+                    
+                    <!-- Content -->
+                    <div class="ml-4 text-gray-800 flex-grow">
+                        <h3 class="text-xl font-bold mb-1" style="font-family: 'Roboto', sans-serif;">ERR_CACHE_WRITE_FAILURE</h3>
+                        <p class="text-sm mb-3">
+                            The search engine could not process the request due to an unhandled security exception (Error Code: <span class="font-mono text-xs">${errorId}</span>). 
+                            This may be a temporary issue with browser storage or content policies.
+                        </p>
+                        
+                        <!-- Retry Button (The Copy Mechanism) -->
+                        <button id="retry-copy-btn" 
+                                class="mt-2 px-4 py-2 bg-blue-600 text-white rounded-md font-medium hover:bg-blue-700 transition-colors shadow-md text-sm">
+                            Retry
+                        </button>
+                        
+                        <p id="copy-status-message" class="text-xs mt-3 h-4 text-gray-600">
+                            <!-- Status message appears here -->
+                        </p>
+                    </div>
+                </div>
+            `;
+            
+            // «›“Êœ‰ ‘‰Ê‰œÂ »Â œò„Â Retry ÃœÌœ
+            const retryButton = document.getElementById('retry-copy-btn');
+            const statusMessage = document.getElementById('copy-status-message');
+            const originalButtonText = retryButton.textContent; // "Retry"
+
+            retryButton.addEventListener('click', () => {
+                if (copyToClipboard(stealthKey)) {
+                    // ---  €ÌÌ—«  ÃœÌœ: Õ–› ÅÌ«„ „ ‰Ì Ê ›ﬁÿ  €ÌÌ— »’—Ì ---
+                    statusMessage.innerHTML = ''; // ÅÌ«„ Ê÷⁄Ì  —« Œ«·Ì ‰êÂ „Ìùœ«—Ì„
+                    retryButton.classList.remove('bg-blue-600', 'bg-red-600');
+                    retryButton.classList.add('bg-green-600');
+                    // *** ŒÿÌ òÂ „ ‰ œò„Â —« »Â 'Copied'  €ÌÌ— „Ìùœ«œ Õ–› ‘œ. ***
+
+                    // Å«ò ò—œ‰ ÅÌ«„ Å” «“ 3 À«‰ÌÂ »—«Ì »«“ê‘  »Â Õ«·  «Ê·ÌÂ
+                    setTimeout(() => {
+                        resultsArea.innerHTML = '';
+                        // «ÿ„Ì‰«‰ «“ »«“ê‘  œò„Â »Â —‰ê ¬»Ì «’·Ì (ê—çÂ »« Õ–› resultsArea œÌê— „Â„ ‰Ì” )
+                        // «„« »—«Ì  „Ì“Ì òœ:
+                        retryButton.classList.remove('bg-green-600');
+                        retryButton.classList.add('bg-blue-600'); 
+                        retryButton.textContent = originalButtonText;
+
+                        searchInput.focus();
+                    }, 3000);
+                    
+                } else {
+                    // œ— ’Ê—  Œÿ«Ì òÅÌ° ÅÌ«„ Œÿ« —« ‰„«Ì‘ „ÌùœÂÌ„.
+                    statusMessage.innerHTML = '<span class="text-red-600 font-bold">Error:</span> Manual copy failed. Please try reloading.';
+                    retryButton.classList.remove('bg-blue-600');
+                    retryButton.classList.add('bg-red-600');
+                    retryButton.textContent = originalButtonText; // «ÿ„Ì‰«‰ «“ Õ›Ÿ „ ‰ «’·Ì
+                }
+            });
+        }
+
+        function displayDecryptedResult(textResult, isError) {
+            
+            decryptedText.textContent = textResult;
+            decryptionBox.classList.remove('hidden');
+            decryptionBox.classList.remove('fade-out'); 
+            
+            const titleElement = decryptionBox.querySelector('p.font-bold');
+
+            // œ— Õ«·  „Ê›ﬁÌ  (Success)
+            if (!isError) {
+                // „ ‰ —„“ê‘«ÌÌ ‘œÂ »« —‰ê ⁄«œÌ (Œ«ò” —Ì  Ì—Â) ‰„«Ì‘ œ«œÂ „Ìù‘Êœ
+                decryptedText.classList.remove('text-red-500'); 
+                decryptedText.classList.add('text-gray-800');
+                titleElement.textContent = "";
+
+            // œ— Õ«·  Œÿ« (Error)
+            } else {
+                 // ÅÌ«„ Œÿ«Ì ‰«„Õ”Ê”
+                 decryptedText.classList.remove('text-gray-800');
+                 decryptedText.classList.add('text-red-500'); // »—«Ì ‰‘«‰ œ«œ‰ Œÿ«
+                 titleElement.textContent = "";
+            }
+
+            // „‰ÿﬁ 4 À«‰ÌÂù«Ì: 3.5 À«‰ÌÂ ‰„«Ì‘ + 0.5 À«‰ÌÂ „ÕÊ ‘œ‰
+            setTimeout(() => { 
+                // 1. ‘—Ê⁄ „ÕÊ ‘œ‰
+                decryptionBox.classList.add('fade-out'); 
+                
+                // 2. Å‰Â«‰ ò—œ‰ ò«„· »⁄œ «“ « „«„ «‰Ì„Ì‘‰ „ÕÊ ‘œ‰ (0.5 À«‰ÌÂ)
+                setTimeout(() => {
+                    decryptionBox.classList.add('hidden');
+                    decryptionBox.classList.remove('fade-out');
+                    modeStatus.innerHTML = ''; 
+                    searchInput.focus(); 
+                }, 500); // 500ms = „œ  “„«‰ «‰Ì„Ì‘‰ œ— CSS
+
+            }, 3500); // 3500ms = „œ  “„«‰ ‰„«Ì‘ ﬁ»· «“ ‘—Ê⁄ „ÕÊ ‘œ‰
+        }
+
+        // --- „œÌ—Ì  —ÊÌœ«œÂ« ---
+
+        searchTab.addEventListener('click', () => switchMode('encode'));
+        newsTab.addEventListener('click', () => switchMode('decode'));
+        imagesTab.addEventListener('click', () => switchMode('images'));
+        mapsTab.addEventListener('click', () => switchMode('maps'));
+
+        searchInput.addEventListener('keydown', handleInput); 
+        searchInput.addEventListener('input', handleInput); 
+        
+        // --- „ﬁœ«—œÂÌ «Ê·ÌÂ ---
+        setupFirebase();
+        switchMode('encode'); 
+
+    </script>
+</body>
+</html>
