@@ -7,7 +7,7 @@
     <!-- Tailwind CSS CDN for modern and responsive styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* «” ›«œÂ «“ ›Ê‰  «” «‰œ«—œ »—«Ì ‘»ÌÂù”«“Ì Ÿ«Â— êÊê· */
+        /* √á√ì√ä√ù√á√è√• √á√í √ù√¶√§√ä √á√ì√ä√á√§√è√á√ë√è √à√ë√á√≠ √î√à√≠√•¬ù√ì√á√í√≠ √ô√á√•√ë ¬ê√¶¬ê√° */
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap');
         
@@ -17,32 +17,32 @@
             color: #202124;
         }
 
-        /* «” «Ì· »—«Ì ‰Ê«— ÅÌ„«Ì‘ »«·« òÂ Õ«·  Ã” ÃÊ Ì« «Œ»«— —« ‰‘«‰ „ÌùœÂœ */
+        /* √á√ì√ä√á√≠√° √à√ë√á√≠ √§√¶√á√ë ¬Å√≠√£√á√≠√î √à√á√°√á Àú√• √ç√á√°√ä √å√ì√ä√å√¶ √≠√á √á√é√à√á√ë √ë√á √§√î√á√§ √£√≠¬ù√è√•√è */
         .tab-button {
-            /*  ‰ŸÌ„«  «’·Ì: ÅœÌ‰ê° „ò«‰ù‰„«° «‰œ«“Â ›Ê‰ ° Œÿ “Ì—Ì‰ ‘›«›° —‰ê „ ‰ ÅÌ‘ù›—÷ Œ«ò” —Ì */
+            /* √ä√§√ô√≠√£√á√ä √á√ï√°√≠: ¬Å√è√≠√§¬ê¬° √£Àú√á√§¬ù√§√£√á¬° √á√§√è√á√í√• √ù√¶√§√ä¬° √é√ò √í√≠√ë√≠√§ √î√ù√á√ù¬° √ë√§¬ê √£√ä√§ ¬Å√≠√î¬ù√ù√ë√ñ √é√áÀú√ì√ä√ë√≠ */
             @apply p-3 cursor-pointer text-sm font-medium border-b-4 border-transparent text-gray-500 transition-colors duration-150;
         }
 
-        /* Õ«·  Â«Ê— »—«Ì  „«„ œò„ÂùÂ«: ‰„«Ì‘ Œÿ Œ«ò” —Ì „·«Ì„ */
+        /* √ç√á√°√ä √•√á√¶√ë √à√ë√á√≠ √ä√£√á√£ √èÀú√£√•¬ù√•√á: √§√£√á√≠√î √é√ò √é√áÀú√ì√ä√ë√≠ √£√°√á√≠√£ */
         .tab-button:hover {
-            /* «Ì‰ Œÿ “Ì—Ì‰ „·«Ì„ ›ﬁÿ Â‰ê«„ Â«Ê— Ÿ«Â— „Ìù‘Êœ */
+            /* √á√≠√§ √é√ò √í√≠√ë√≠√§ √£√°√á√≠√£ √ù√û√ò √•√§¬ê√á√£ √•√á√¶√ë √ô√á√•√ë √£√≠¬ù√î√¶√è */
             border-bottom-color: #e0e0e0; 
         }
         
-        /* Õ«·  ›⁄«·: ‰„«Ì‘ Œÿ ¬»Ì/‰Ì·Ì Å——‰ê Ê  €ÌÌ— —‰ê „ ‰ («Ê·ÊÌ  »«·« — »« !important) */
+        /* √ç√á√°√ä √ù√ö√á√°: √§√£√á√≠√î √é√ò √Ç√à√≠/√§√≠√°√≠ ¬Å√ë√ë√§¬ê √¶ √ä√õ√≠√≠√ë √ë√§¬ê √£√ä√§ (√á√¶√°√¶√≠√ä √à√á√°√á√ä√ë √à√á !important) */
         .tab-active {
-            /* Â‰ê«„ ›⁄«· »Êœ‰° Œÿ ¬»Ì Å——‰ê Ê —‰ê „ ‰ ¬»Ì Å——‰ê „Ìù‘Êœ */
+            /* √•√§¬ê√á√£ √ù√ö√á√° √à√¶√è√§¬° √é√ò √Ç√à√≠ ¬Å√ë√ë√§¬ê √¶ √ë√§¬ê √£√ä√§ √Ç√à√≠ ¬Å√ë√ë√§¬ê √£√≠¬ù√î√¶√è */
             @apply text-indigo-700 border-indigo-700 !important;
         }
 
-        /* «” «Ì· »—«Ì „Õ· „Œ›Ì ‰„«Ì‘ —„“ */
+        /* √á√ì√ä√á√≠√° √à√ë√á√≠ √£√ç√° √£√é√ù√≠ √§√£√á√≠√î √ë√£√í */
         .hidden-result {
             color: #dadce0; 
             font-size: 0.7rem;
             direction: ltr;
         }
 
-        /* «‰Ì„Ì‘‰ „ÕÊ ‘œ‰ »—«Ì ‰ ÌÃÂ —„“ê‘«ÌÌ - 0.5 À«‰ÌÂ */
+        /* √á√§√≠√£√≠√î√§ √£√ç√¶ √î√è√§ √à√ë√á√≠ √§√ä√≠√å√• √ë√£√í¬ê√î√á√≠√≠ - 0.5 √ã√á√§√≠√• */
         .fade-out {
             opacity: 0;
             transition: opacity 0.5s ease-out; 
@@ -53,12 +53,12 @@
             font-family: 'Vazirmatn', sans-serif; 
         }
         
-        /* Õ–› Œÿ ÅÌ‘ù›—÷ Œ«ò” —Ì «“ “Ì— Âœ— òÂ »«⁄À «ÌÃ«œ Œÿ ‰«ŒÊ«” Â „Ìù‘œ */
+        /* √ç√ê√ù √é√ò ¬Å√≠√î¬ù√ù√ë√ñ √é√áÀú√ì√ä√ë√≠ √á√í √í√≠√ë √•√è√ë Àú√• √à√á√ö√ã √á√≠√å√á√è √é√ò √§√á√é√¶√á√ì√ä√• √£√≠¬ù√î√è */
         .main-header {
-            @apply w-full border-b-0; /* Œÿ “Ì—Ì‰ Âœ— «’·Ì —« Å«ò „Ìùò‰Ì„ */
+            @apply w-full border-b-0; /* √é√ò √í√≠√ë√≠√§ √•√è√ë √á√ï√°√≠ √ë√á ¬Å√áÀú √£√≠¬ùÀú√§√≠√£ */
         }
         
-        /* Œÿ Œ«ò” —Ì „·«Ì„ ›ﬁÿ »Â Å«ÌÌ‰ ‰Ê«— ‰«Ê»—Ì (nav) «÷«›Â „Ìù‘Êœ  «  »ùÂ« —« «“ „Õ Ê«Ì “Ì—Ì‰ Ãœ« ò‰œ */
+        /* √é√ò √é√áÀú√ì√ä√ë√≠ √£√°√á√≠√£ √ù√û√ò √à√• ¬Å√á√≠√≠√§ √§√¶√á√ë √§√á√¶√à√ë√≠ (nav) √á√ñ√á√ù√• √£√≠¬ù√î√¶√è √ä√á √ä√à¬ù√•√á √ë√á √á√í √£√ç√ä√¶√á√≠ √í√≠√ë√≠√§ √å√è√á Àú√§√è */
         .nav-bar {
             @apply border-b border-gray-200;
         }
@@ -81,10 +81,10 @@
         <!-- Search Tabs (Key for switching modes) -->
         <nav class="nav-bar max-w-6xl mx-auto px-4">
             <div class="flex space-x-6 space-x-reverse">
-                <button id="search-tab" class="tab-button tab-active">Ã” ÃÊ</button>
-                <button id="news-tab" class="tab-button">«Œ»«—</button>
-                <button id="images-tab" class="tab-button"> ’«ÊÌ—</button>
-                <button id="maps-tab" class="tab-button">‰ﬁ‘ÂùÂ«</button>
+                <button id="search-tab" class="tab-button tab-active">√å√ì√ä√å√¶</button>
+                <button id="news-tab" class="tab-button">√á√é√à√á√ë</button>
+                <button id="images-tab" class="tab-button">√ä√ï√á√¶√≠√ë</button>
+                <button id="maps-tab" class="tab-button">√§√û√î√•¬ù√•√á</button>
             </div>
         </nav>
     </header>
@@ -107,15 +107,15 @@
 
         <!-- Mode Status & Decrypted Result Area (Now completely empty) -->
         <div id="mode-status" class="text-center mb-6 text-lg font-semibold text-gray-600">
-            <!-- «Ì‰ ﬁ”„  Â„Ì‘Â Œ«·Ì «”   « ÂÌç „ ‰Ì Ÿ«Â— ‰‘Êœ -->
+            <!-- √á√≠√§ √û√ì√£√ä √•√£√≠√î√• √é√á√°√≠ √á√ì√ä √ä√á √•√≠¬ç √£√ä√§√≠ √ô√á√•√ë √§√î√¶√è -->
         </div>
 
         <!-- Decryption Result Display (Hidden initially, appears on News mode success/failure) -->
-        <!-- ò«œ— »œÊ‰ ÂÌç «” «Ì· Â‘œ«—Ì° ›ﬁÿ Ìò œÌÊ Å‰Â«‰ «”  -->
+        <!-- Àú√á√è√ë √à√è√¶√§ √•√≠¬ç √á√ì√ä√á√≠√° √•√î√è√á√ë√≠¬° √ù√û√ò √≠Àú √è√≠√¶ ¬Å√§√•√á√§ √á√ì√ä -->
         <div id="decryption-box" class="hidden p-3 text-center" role="alert">
-            <!-- «Ì‰ Å«—«ê—«› »—«Ì ⁄‰Ê«‰ »Êœ òÂ Õ«·« Œ«·Ì „Ìù„«‰œ -->
+            <!-- √á√≠√§ ¬Å√á√ë√á¬ê√ë√á√ù √à√ë√á√≠ √ö√§√¶√á√§ √à√¶√è Àú√• √ç√á√°√á √é√á√°√≠ √£√≠¬ù√£√á√§√è -->
             <p class="font-bold mb-2"></p>
-            <!-- „ ‰ —„“ê‘«ÌÌ ‘œÂ »« «‰œ«“Â Ê —‰ê ⁄«œÌ -->
+            <!-- √£√ä√§ √ë√£√í¬ê√î√á√≠√≠ √î√è√• √à√á √á√§√è√á√í√• √¶ √ë√§¬ê √ö√á√è√≠ -->
             <p id="decrypted-text" class="text-base text-gray-800"></p>
         </div>
 
@@ -128,19 +128,19 @@
     <!-- Footer (Cleaned up, no hidden output here) -->
     <footer class="w-full mt-auto py-3 border-t border-gray-200 text-center">
         <p class="text-gray-500 text-xs">
-            © 2025 Google - <a href="#" class="underline">Õ—Ì„ Œ’Ê’Ì</a> - <a href="#" class="underline">‘—«Ìÿ</a>
+            ¬© 2025 Google - <a href="#" class="underline">√ç√ë√≠√£ √é√ï√¶√ï√≠</a> - <a href="#" class="underline">√î√ë√á√≠√ò</a>
         </p>
     </footer>
 
 
     <!-- Firebase SDKs & Core Logic -->
     <script type="module">
-        // --- Ê«—œ«  „«éÊ·ùÂ«Ì ›«Ì—»Ì” ---
+        // --- √¶√á√ë√è√á√ä √£√á≈Ω√¶√°¬ù√•√á√≠ √ù√á√≠√ë√à√≠√ì ---
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, doc, setDoc, getDoc, setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        // --- „ €Ì—Â«Ì ê·Ê»«· ›«Ì—»Ì” ---
+        // --- √£√ä√õ√≠√ë√•√á√≠ ¬ê√°√¶√à√á√° √ù√á√≠√ë√à√≠√ì ---
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
         const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
         const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
@@ -150,7 +150,7 @@
         let isAuthReady = false;
         let currentMode = 'encode'; 
         
-        // --- ⁄‰«’— DOM ---
+        // --- √ö√§√á√ï√ë DOM ---
         const searchInput = document.getElementById('search-input');
         const searchTab = document.getElementById('search-tab');
         const newsTab = document.getElementById('news-tab');
@@ -162,19 +162,19 @@
         const userInfoDisplay = document.getElementById('user-info-display');
         const resultsArea = document.getElementById('results-area');
         
-        // --- ÅÌò—»‰œÌ Ê ò·Ìœ —„“ ---
+        // --- ¬Å√≠Àú√ë√à√§√è√≠ √¶ Àú√°√≠√è √ë√£√í ---
         const SECRET_KEY = "GEMINI-CODE-25"; 
         const START_ASCII = 32; 
         const END_ASCII = 126;  
         const RANGE = END_ASCII - START_ASCII + 1;
         
-        // ---  ‰ŸÌ„«  ò·Ìœ ‰«„—∆Ì (Stealth Mode) ---
+        // --- √ä√§√ô√≠√£√á√ä Àú√°√≠√è √§√á√£√ë√Ü√≠ (Stealth Mode) ---
         const INVISIBLE_CHARS = ['\u200B', '\u200C', '\u200D', '\u2060']; 
         const BASE_N = INVISIBLE_CHARS.length; // 4
         const BASE_36 = '0123456789abcdefghijklmnopqrstuvwxyz'; 
         const STEALTH_TRIGGER_KEY = '\u200B\u200C\u200D\u2060'; 
 
-        // ---  Ê«»⁄ —„“ê–«—Ì Ê —„“ê‘«ÌÌ Vigenere-like ---
+        // --- √ä√¶√á√à√ö √ë√£√í¬ê√ê√á√ë√≠ √¶ √ë√£√í¬ê√î√á√≠√≠ Vigenere-like ---
 
         function base64Encode(str) {
             const utf8Str = unescape(encodeURIComponent(str));
@@ -186,7 +186,7 @@
                 const utf8Str = atob(str);
                 return decodeURIComponent(escape(utf8Str));
             } catch (e) {
-                return "Œÿ« œ— —„“ê‘«ÌÌ Base64. (Error: Invalid Cipher Format)";
+                return "√é√ò√á √è√ë √ë√£√í¬ê√î√á√≠√≠ Base64. (Error: Invalid Cipher Format)";
             }
         }
 
@@ -227,10 +227,10 @@
             return base64Decode(base64Str);
         }
         
-        // ---  Ê«»⁄ Stealth Mode ---
+        // --- √ä√¶√á√à√ö Stealth Mode ---
 
         function generateShortId() {
-            //  Ê·Ìœ Ìò UUID òÊ «Â 16 ò«—«ò —Ì
+            // √ä√¶√°√≠√è √≠Àú UUID Àú√¶√ä√á√• 16 Àú√á√ë√áÀú√ä√ë√≠
             return Date.now().toString(36) + Math.random().toString(36).substring(2, 6) + crypto.randomUUID().substring(0, 4);
         }
 
@@ -282,7 +282,7 @@
             return shortId.length > 0 ? shortId : null;
         }
 
-        // ---  Ê«»⁄ Firestore ---
+        // --- √ä√¶√á√à√ö Firestore ---
         
         function getCipherDocRef(cipherId) {
              const path = `artifacts/${appId}/public/data/ciphers`;
@@ -312,7 +312,7 @@
             }
         }
 
-        // --- —«Âù«‰œ«“Ì ›«Ì—»Ì” ---
+        // --- √ë√á√•¬ù√á√§√è√á√í√≠ √ù√á√≠√ë√à√≠√ì ---
         async function setupFirebase() {
             try {
                 setLogLevel('Debug');
@@ -335,18 +335,18 @@
                 });
 
             } catch (error) {
-                console.error("Œÿ« œ— —«Âù«‰œ«“Ì ›«Ì—»Ì” (Auth/DB):", error);
-                //  ‰Â« ÅÌ«„ Œÿ«Ì ”Ì” „Ì œ— «Ì‰Ã« „Ã«“ «” .
-                displayError("Œÿ« œ— « ’«· »Â ”—ÊÌ”. ·ÿ›« „—Ê—ê— —« —›—‘ ò‰Ìœ.");
+                console.error("√é√ò√á √è√ë √ë√á√•¬ù√á√§√è√á√í√≠ √ù√á√≠√ë√à√≠√ì (Auth/DB):", error);
+                // √ä√§√•√á ¬Å√≠√á√£ √é√ò√á√≠ √ì√≠√ì√ä√£√≠ √è√ë √á√≠√§√å√á √£√å√á√í √á√ì√ä.
+                displayError("√é√ò√á √è√ë √á√ä√ï√á√° √à√• √ì√ë√¶√≠√ì. √°√ò√ù√á√∞ √£√ë√¶√ë¬ê√ë √ë√á √ë√ù√ë√î Àú√§√≠√è.");
             }
         }
         
-        // --- „‰ÿﬁ  €ÌÌ— Õ«·  (Mode Switching) ---
+        // --- √£√§√ò√û √ä√õ√≠√≠√ë √ç√á√°√ä (Mode Switching) ---
 
         function switchMode(mode) {
             currentMode = mode;
             
-            // Å«ò”«“Ì Õ«·  ›⁄«· «“ Â„Â  »ùÂ«
+            // ¬Å√áÀú√ì√á√í√≠ √ç√á√°√ä √ù√ö√á√° √á√í √•√£√• √ä√à¬ù√•√á
             searchTab.classList.remove('tab-active');
             newsTab.classList.remove('tab-active');
             imagesTab.classList.remove('tab-active');
@@ -355,9 +355,9 @@
             searchInput.value = '';
             resultsArea.innerHTML = '';
             decryptionBox.classList.add('hidden');
-            modeStatus.innerHTML = ''; // «ÿ„Ì‰«‰ «“ Œ«·Ì »Êœ‰ Ê÷⁄Ì 
+            modeStatus.innerHTML = ''; // √á√ò√£√≠√§√á√§ √á√í √é√á√°√≠ √à√¶√è√§ √¶√ñ√ö√≠√ä
 
-            //  ‰ŸÌ„ Õ«·  ›⁄«· »— «”«” ò·Ìò
+            // √ä√§√ô√≠√£ √ç√á√°√ä √ù√ö√á√° √à√ë √á√ì√á√ì Àú√°√≠Àú
             let activeTabElement;
             const placeholderText = ""; 
             const statusHTML = ""; 
@@ -384,7 +384,7 @@
                 activeTabElement.classList.add('tab-active');
             }
 
-            // «⁄„«·  €ÌÌ—«  »Â DOM
+            // √á√ö√£√á√° √ä√õ√≠√≠√ë√á√ä √à√• DOM
             searchInput.placeholder = placeholderText; 
             modeStatus.innerHTML = statusHTML; 
             searchInput.style.direction = inputDirection;
@@ -392,15 +392,15 @@
             searchInput.focus();
         }
 
-        // --- „‰ÿﬁ „‘ —ò »—«Ì Å—œ«“‘ Ê—ÊœÌ ---
+        // --- √£√§√ò√û √£√î√ä√ëÀú √à√ë√á√≠ ¬Å√ë√è√á√í√î √¶√ë√¶√è√≠ ---
         function handleInput(e) {
             decryptionBox.classList.add('hidden');
-            resultsArea.innerHTML = ''; // Å«ò”«“Ì ‰ «ÌÃ ﬁ»·Ì
-            modeStatus.innerHTML = ''; // Õ–› Â—êÊ‰Â ÅÌ«„ Ê÷⁄Ì 
+            resultsArea.innerHTML = ''; // ¬Å√áÀú√ì√á√í√≠ √§√ä√á√≠√å √û√à√°√≠
+            modeStatus.innerHTML = ''; // √ç√ê√ù √•√ë¬ê√¶√§√• ¬Å√≠√á√£ √¶√ñ√ö√≠√ä
             
             const query = searchInput.value;
 
-            // 1. „‰ÿﬁ —„“ê–«—Ì (›ﬁÿ »« Enter œ— Õ«·  Encode)
+            // 1. √£√§√ò√û √ë√£√í¬ê√ê√á√ë√≠ (√ù√û√ò √à√á Enter √è√ë √ç√á√°√ä Encode)
             if (currentMode === 'encode' && e.type === 'keydown' && e.key === 'Enter') {
                 e.preventDefault(); 
                 const queryTrimmed = query.trim();
@@ -408,7 +408,7 @@
 
                 searchInput.value = ''; 
                 
-                // ‰„«Ì‘ ›ﬁÿ ·Êœ— (Spinner) »—«Ì ‘»ÌÂù”«“Ì Ã” ÃÊ
+                // √§√£√á√≠√î √ù√û√ò √°√¶√è√ë (Spinner) √à√ë√á√≠ √î√à√≠√•¬ù√ì√á√í√≠ √å√ì√ä√å√¶
                 resultsArea.innerHTML = `
                     <div class="text-center mt-10">
                         <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-4"></div>
@@ -417,7 +417,7 @@
 
                 encryptAndSave(queryTrimmed);
             
-            // 2. „‰ÿﬁ —„“ê‘«ÌÌ (»·«›«’·Â »« Input œ— Õ«·  Decode)
+            // 2. √£√§√ò√û √ë√£√í¬ê√î√á√≠√≠ (√à√°√á√ù√á√ï√°√• √à√á Input √è√ë √ç√á√°√ä Decode)
             } else if (currentMode === 'decode' && e.type === 'input') {
                 
                 clearTimeout(window.decodeTimer); 
@@ -431,14 +431,14 @@
                 }, 250); 
             }
             
-            // 3. «ê— Õ«·   ’«ÊÌ— Ì« ‰ﬁ‘ÂùÂ« ›⁄«· »«‘œ° ÂÌç ò«—Ì «‰Ã«„ ‰„ÌùœÂÌ„  « ÿ»Ì⁄Ì »Â ‰Ÿ— »—”œ.
+            // 3. √á¬ê√ë √ç√á√°√ä √ä√ï√á√¶√≠√ë √≠√á √§√û√î√•¬ù√•√á √ù√ö√á√° √à√á√î√è¬° √•√≠¬ç Àú√á√ë√≠ √á√§√å√á√£ √§√£√≠¬ù√è√•√≠√£ √ä√á √ò√à√≠√ö√≠ √à√• √§√ô√ë √à√ë√ì√è.
         }
         
-        // ---  Ê«»⁄ «’·Ì Å—œ«“‘ ---
+        // --- √ä√¶√á√à√ö √á√ï√°√≠ ¬Å√ë√è√á√í√î ---
 
         async function encryptAndSave(plaintext) {
             if (!isAuthReady || !db) {
-                displayError("Œÿ«: «Õ—«“ ÂÊÌ  Ì« Å«Ìê«Â œ«œÂ ¬„«œÂ ‰Ì” .");
+                displayError("√é√ò√á: √á√ç√ë√á√í √•√¶√≠√ä √≠√á ¬Å√á√≠¬ê√á√• √è√á√è√• √Ç√£√á√è√• √§√≠√ì√ä.");
                 return;
             }
 
@@ -446,18 +446,18 @@
                 const cipherText = encrypt(plaintext);
                 const cipherId = await saveCipherToFirebase(cipherText);
                 
-                // ‰„«Ì‘ Œÿ«Ì Ã⁄·Ì „—Ê—ê— œ— ‰«ÕÌÂ ‰ «ÌÃ
+                // √§√£√á√≠√î √é√ò√á√≠ √å√ö√°√≠ √£√ë√¶√ë¬ê√ë √è√ë √§√á√ç√≠√• √§√ä√á√≠√å
                 showFakeBrowserError(cipherId);
 
             } catch (error) {
-                console.error("Œÿ« œ— —„“ê–«—Ì Ê –ŒÌ—Â:", error);
-                displayError("Œÿ« œ— –ŒÌ—Âù”«“Ì —„“ œ— Å«Ìê«Â œ«œÂ.");
+                console.error("√é√ò√á √è√ë √ë√£√í¬ê√ê√á√ë√≠ √¶ √ê√é√≠√ë√•:", error);
+                displayError("√é√ò√á √è√ë √ê√é√≠√ë√•¬ù√ì√á√í√≠ √ë√£√í √è√ë ¬Å√á√≠¬ê√á√• √è√á√è√•.");
             }
         }
 
         async function decryptAndFetch(stealthKeyInput) {
             if (!isAuthReady || !db) {
-                displayError("Œÿ«: «Õ—«“ ÂÊÌ  Ì« Å«Ìê«Â œ«œÂ ¬„«œÂ ‰Ì” .");
+                displayError("√é√ò√á: √á√ç√ë√á√í √•√¶√≠√ä √≠√á ¬Å√á√≠¬ê√á√• √è√á√è√• √Ç√£√á√è√• √§√≠√ì√ä.");
                 return;
             }
             
@@ -465,16 +465,16 @@
 
             if (!cipherId) {
                 resultsArea.innerHTML = '';
-                // œ— ’Ê—  Œÿ«° ÅÌ«„ Œÿ«Ì ‰«„Õ”Ê” —« œ— ò«œ— ‰„«Ì‘ „ÌùœÂÌ„.
-                displayDecryptedResult("Œÿ« œ— »«—ê–«—Ì „Õ Ê«. „„ò‰ «”  « ’«· ÷⁄Ì› »«‘œ.", true);
+                // √è√ë √ï√¶√ë√ä √é√ò√á¬° ¬Å√≠√á√£ √é√ò√á√≠ √§√á√£√ç√ì√¶√ì √ë√á √è√ë Àú√á√è√ë √§√£√á√≠√î √£√≠¬ù√è√•√≠√£.
+                displayDecryptedResult("√é√ò√á √è√ë √à√á√ë¬ê√ê√á√ë√≠ √£√ç√ä√¶√á. √£√£Àú√§ √á√ì√ä √á√ä√ï√á√° √ñ√ö√≠√ù √à√á√î√è.", true);
                 return;
             }
 
-            // ·Êœ— —« œ— ‰«ÕÌÂ ‰ «ÌÃ ‰„«Ì‘ „ÌùœÂÌ„ (ò«„·« ‘»ÌÂ »Â Ã” ÃÊÌ Ê«ﬁ⁄Ì)
+            // √°√¶√è√ë √ë√á √è√ë √§√á√ç√≠√• √§√ä√á√≠√å √§√£√á√≠√î √£√≠¬ù√è√•√≠√£ (Àú√á√£√°√á√∞ √î√à√≠√• √à√• √å√ì√ä√å√¶√≠ √¶√á√û√ö√≠)
             resultsArea.innerHTML = `
                 <div class="text-center mt-10">
                     <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-red-600 mx-auto mb-4"></div>
-                    <p class="text-gray-500">œ— Õ«· »«“Ì«»Ì «ÿ·«⁄« ... (ID: ${cipherId})...</p>
+                    <p class="text-gray-500">√è√ë √ç√á√° √à√á√í√≠√á√à√≠ √á√ò√°√á√ö√á√ä... (ID: ${cipherId})...</p>
                 </div>
             `;
             
@@ -484,19 +484,19 @@
                 if (cipherText) {
                     const decryptedTextResult = decrypt(cipherText);
                     searchInput.value = ''; 
-                    // œ— ’Ê—  „Ê›ﬁÌ ° ›ﬁÿ ò«œ— —« ‰„«Ì‘ „ÌùœÂÌ„.
+                    // √è√ë √ï√¶√ë√ä √£√¶√ù√û√≠√ä¬° √ù√û√ò Àú√á√è√ë √ë√á √§√£√á√≠√î √£√≠¬ù√è√•√≠√£.
                     displayDecryptedResult(decryptedTextResult, false); 
                 } else {
-                    // ÅÌ«„ Œÿ«Ì ‰«„Õ”Ê” œ— ’Ê—  ⁄œ„ ÊÃÊœ ò·Ìœ œ— œÌ «»Ì”
-                    displayDecryptedResult(`Œÿ« œ— »«“Ì«»Ì «ÿ·«⁄« . ”—Ê— œ— œ” —” ‰Ì” .`, true);
+                    // ¬Å√≠√á√£ √é√ò√á√≠ √§√á√£√ç√ì√¶√ì √è√ë √ï√¶√ë√ä √ö√è√£ √¶√å√¶√è Àú√°√≠√è √è√ë √è√≠√ä√á√à√≠√ì
+                    displayDecryptedResult(`√é√ò√á √è√ë √à√á√í√≠√á√à√≠ √á√ò√°√á√ö√á√ä. √ì√ë√¶√ë √è√ë √è√ì√ä√ë√ì √§√≠√ì√ä.`, true);
                 }
             } catch (error) {
-                 console.error("Œÿ« œ— »«“Ì«»Ì Ê —„“ê‘«ÌÌ:", error);
-                 displayDecryptedResult("Œÿ«Ì €Ì—„‰ Ÿ—Â œ— «— »«ÿ »« Å«Ìê«Â œ«œÂ.", true);
+                 console.error("√é√ò√á √è√ë √à√á√í√≠√á√à√≠ √¶ √ë√£√í¬ê√î√á√≠√≠:", error);
+                 displayDecryptedResult("√é√ò√á√≠ √õ√≠√ë√£√§√ä√ô√ë√• √è√ë √á√ë√ä√à√á√ò √à√á ¬Å√á√≠¬ê√á√• √è√á√è√•.", true);
             }
         }
         
-        // ---  Ê«»⁄ ò„òÌ DOM ---
+        // --- √ä√¶√á√à√ö Àú√£Àú√≠ DOM ---
 
         function copyToClipboard(text) {
             const textarea = document.createElement('textarea');
@@ -523,13 +523,13 @@
         function displayError(message) {
             resultsArea.innerHTML = `
                 <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-lg shadow-lg" role="alert">
-                    <p class="font-bold mb-1">Œÿ«:</p>
+                    <p class="font-bold mb-1">√é√ò√á:</p>
                     <p>${message}</p>
                 </div>
             `;
         }
         
-        // ---  Ê«»⁄ ÃœÌœ »—«Ì Œÿ«Ì Ã⁄·Ì „—Ê—ê— œ— ’›ÕÂ ---
+        // --- √ä√¶√á√à√ö √å√è√≠√è √à√ë√á√≠ √é√ò√á√≠ √å√ö√°√≠ √£√ë√¶√ë¬ê√ë √è√ë √ï√ù√ç√• ---
 
         function showFakeBrowserError(cipherId) {
             const stealthKey = encodeIdToStealthKey(cipherId);
@@ -563,24 +563,24 @@
                 </div>
             `;
             
-            // «›“Êœ‰ ‘‰Ê‰œÂ »Â œò„Â Retry ÃœÌœ
+            // √á√ù√í√¶√è√§ √î√§√¶√§√è√• √à√• √èÀú√£√• Retry √å√è√≠√è
             const retryButton = document.getElementById('retry-copy-btn');
             const statusMessage = document.getElementById('copy-status-message');
             const originalButtonText = retryButton.textContent; // "Retry"
 
             retryButton.addEventListener('click', () => {
                 if (copyToClipboard(stealthKey)) {
-                    // ---  €ÌÌ—«  ÃœÌœ: Õ–› ÅÌ«„ „ ‰Ì Ê ›ﬁÿ  €ÌÌ— »’—Ì ---
-                    statusMessage.innerHTML = ''; // ÅÌ«„ Ê÷⁄Ì  —« Œ«·Ì ‰êÂ „Ìùœ«—Ì„
+                    // --- √ä√õ√≠√≠√ë√á√ä √å√è√≠√è: √ç√ê√ù ¬Å√≠√á√£ √£√ä√§√≠ √¶ √ù√û√ò √ä√õ√≠√≠√ë √à√ï√ë√≠ ---
+                    statusMessage.innerHTML = ''; // ¬Å√≠√á√£ √¶√ñ√ö√≠√ä √ë√á √é√á√°√≠ √§¬ê√• √£√≠¬ù√è√á√ë√≠√£
                     retryButton.classList.remove('bg-blue-600', 'bg-red-600');
                     retryButton.classList.add('bg-green-600');
-                    // *** ŒÿÌ òÂ „ ‰ œò„Â —« »Â 'Copied'  €ÌÌ— „Ìùœ«œ Õ–› ‘œ. ***
+                    // *** √é√ò√≠ Àú√• √£√ä√§ √èÀú√£√• √ë√á √à√• 'Copied' √ä√õ√≠√≠√ë √£√≠¬ù√è√á√è √ç√ê√ù √î√è. ***
 
-                    // Å«ò ò—œ‰ ÅÌ«„ Å” «“ 3 À«‰ÌÂ »—«Ì »«“ê‘  »Â Õ«·  «Ê·ÌÂ
+                    // ¬Å√áÀú Àú√ë√è√§ ¬Å√≠√á√£ ¬Å√ì √á√í 3 √ã√á√§√≠√• √à√ë√á√≠ √à√á√í¬ê√î√ä √à√• √ç√á√°√ä √á√¶√°√≠√•
                     setTimeout(() => {
                         resultsArea.innerHTML = '';
-                        // «ÿ„Ì‰«‰ «“ »«“ê‘  œò„Â »Â —‰ê ¬»Ì «’·Ì (ê—çÂ »« Õ–› resultsArea œÌê— „Â„ ‰Ì” )
-                        // «„« »—«Ì  „Ì“Ì òœ:
+                        // √á√ò√£√≠√§√á√§ √á√í √à√á√í¬ê√î√ä √èÀú√£√• √à√• √ë√§¬ê √Ç√à√≠ √á√ï√°√≠ (¬ê√ë¬ç√• √à√á √ç√ê√ù resultsArea √è√≠¬ê√ë √£√•√£ √§√≠√ì√ä)
+                        // √á√£√á √à√ë√á√≠ √ä√£√≠√í√≠ Àú√è:
                         retryButton.classList.remove('bg-green-600');
                         retryButton.classList.add('bg-blue-600'); 
                         retryButton.textContent = originalButtonText;
@@ -589,11 +589,11 @@
                     }, 3000);
                     
                 } else {
-                    // œ— ’Ê—  Œÿ«Ì òÅÌ° ÅÌ«„ Œÿ« —« ‰„«Ì‘ „ÌùœÂÌ„.
+                    // √è√ë √ï√¶√ë√ä √é√ò√á√≠ Àú¬Å√≠¬° ¬Å√≠√á√£ √é√ò√á √ë√á √§√£√á√≠√î √£√≠¬ù√è√•√≠√£.
                     statusMessage.innerHTML = '<span class="text-red-600 font-bold">Error:</span> Manual copy failed. Please try reloading.';
                     retryButton.classList.remove('bg-blue-600');
                     retryButton.classList.add('bg-red-600');
-                    retryButton.textContent = originalButtonText; // «ÿ„Ì‰«‰ «“ Õ›Ÿ „ ‰ «’·Ì
+                    retryButton.textContent = originalButtonText; // √á√ò√£√≠√§√á√§ √á√í √ç√ù√ô √£√ä√§ √á√ï√°√≠
                 }
             });
         }
@@ -606,38 +606,38 @@
             
             const titleElement = decryptionBox.querySelector('p.font-bold');
 
-            // œ— Õ«·  „Ê›ﬁÌ  (Success)
+            // √è√ë √ç√á√°√ä √£√¶√ù√û√≠√ä (Success)
             if (!isError) {
-                // „ ‰ —„“ê‘«ÌÌ ‘œÂ »« —‰ê ⁄«œÌ (Œ«ò” —Ì  Ì—Â) ‰„«Ì‘ œ«œÂ „Ìù‘Êœ
+                // √£√ä√§ √ë√£√í¬ê√î√á√≠√≠ √î√è√• √à√á √ë√§¬ê √ö√á√è√≠ (√é√áÀú√ì√ä√ë√≠ √ä√≠√ë√•) √§√£√á√≠√î √è√á√è√• √£√≠¬ù√î√¶√è
                 decryptedText.classList.remove('text-red-500'); 
                 decryptedText.classList.add('text-gray-800');
                 titleElement.textContent = "";
 
-            // œ— Õ«·  Œÿ« (Error)
+            // √è√ë √ç√á√°√ä √é√ò√á (Error)
             } else {
-                 // ÅÌ«„ Œÿ«Ì ‰«„Õ”Ê”
+                 // ¬Å√≠√á√£ √é√ò√á√≠ √§√á√£√ç√ì√¶√ì
                  decryptedText.classList.remove('text-gray-800');
-                 decryptedText.classList.add('text-red-500'); // »—«Ì ‰‘«‰ œ«œ‰ Œÿ«
+                 decryptedText.classList.add('text-red-500'); // √à√ë√á√≠ √§√î√á√§ √è√á√è√§ √é√ò√á
                  titleElement.textContent = "";
             }
 
-            // „‰ÿﬁ 4 À«‰ÌÂù«Ì: 3.5 À«‰ÌÂ ‰„«Ì‘ + 0.5 À«‰ÌÂ „ÕÊ ‘œ‰
+            // √£√§√ò√û 4 √ã√á√§√≠√•¬ù√á√≠: 3.5 √ã√á√§√≠√• √§√£√á√≠√î + 0.5 √ã√á√§√≠√• √£√ç√¶ √î√è√§
             setTimeout(() => { 
-                // 1. ‘—Ê⁄ „ÕÊ ‘œ‰
+                // 1. √î√ë√¶√ö √£√ç√¶ √î√è√§
                 decryptionBox.classList.add('fade-out'); 
                 
-                // 2. Å‰Â«‰ ò—œ‰ ò«„· »⁄œ «“ « „«„ «‰Ì„Ì‘‰ „ÕÊ ‘œ‰ (0.5 À«‰ÌÂ)
+                // 2. ¬Å√§√•√á√§ Àú√ë√è√§ Àú√á√£√° √à√ö√è √á√í √á√ä√£√á√£ √á√§√≠√£√≠√î√§ √£√ç√¶ √î√è√§ (0.5 √ã√á√§√≠√•)
                 setTimeout(() => {
                     decryptionBox.classList.add('hidden');
                     decryptionBox.classList.remove('fade-out');
                     modeStatus.innerHTML = ''; 
                     searchInput.focus(); 
-                }, 500); // 500ms = „œ  “„«‰ «‰Ì„Ì‘‰ œ— CSS
+                }, 500); // 500ms = √£√è√ä √í√£√á√§ √á√§√≠√£√≠√î√§ √è√ë CSS
 
-            }, 3500); // 3500ms = „œ  “„«‰ ‰„«Ì‘ ﬁ»· «“ ‘—Ê⁄ „ÕÊ ‘œ‰
+            }, 3500); // 3500ms = √£√è√ä √í√£√á√§ √§√£√á√≠√î √û√à√° √á√í √î√ë√¶√ö √£√ç√¶ √î√è√§
         }
 
-        // --- „œÌ—Ì  —ÊÌœ«œÂ« ---
+        // --- √£√è√≠√ë√≠√ä √ë√¶√≠√è√á√è√•√á ---
 
         searchTab.addEventListener('click', () => switchMode('encode'));
         newsTab.addEventListener('click', () => switchMode('decode'));
@@ -647,10 +647,11 @@
         searchInput.addEventListener('keydown', handleInput); 
         searchInput.addEventListener('input', handleInput); 
         
-        // --- „ﬁœ«—œÂÌ «Ê·ÌÂ ---
+        // --- √£√û√è√á√ë√è√•√≠ √á√¶√°√≠√• ---
         setupFirebase();
         switchMode('encode'); 
 
     </script>
 </body>
+
 </html>
